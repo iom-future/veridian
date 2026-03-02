@@ -1,34 +1,44 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { HashRouter, Routes, Route, useLocation } from 'react-router-dom'
+import { AnimatePresence } from 'framer-motion'
 
-function App() {
-  const [count, setCount] = useState(0)
+import Navbar from './components/layout/Navbar'
+import Footer from './components/layout/Footer'
+import PageTransition from './components/shared/PageTransition'
 
+import Home          from './pages/Home'
+import Platform      from './pages/Platform'
+import Solutions     from './pages/Solutions'
+import ForEnterprises from './pages/ForEnterprises'
+import ForGovernments from './pages/ForGovernments'
+import CaseStudies   from './pages/CaseStudies'
+import Contact       from './pages/Contact'
+import NotFound      from './pages/NotFound'
+
+const AnimatedRoutes = () => {
+  const location = useLocation()
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        <Route path="/"                element={<PageTransition><Home /></PageTransition>} />
+        <Route path="/platform"        element={<PageTransition><Platform /></PageTransition>} />
+        <Route path="/solutions"       element={<PageTransition><Solutions /></PageTransition>} />
+        <Route path="/for-enterprises" element={<PageTransition><ForEnterprises /></PageTransition>} />
+        <Route path="/for-governments" element={<PageTransition><ForGovernments /></PageTransition>} />
+        <Route path="/case-studies"    element={<PageTransition><CaseStudies /></PageTransition>} />
+        <Route path="/contact"         element={<PageTransition><Contact /></PageTransition>} />
+        <Route path="*"                element={<PageTransition><NotFound /></PageTransition>} />
+      </Routes>
+    </AnimatePresence>
+  )
+}
+
+const App = () => {
+  return (
+    <HashRouter>
+      <Navbar />
+      <AnimatedRoutes />
+      <Footer />
+    </HashRouter>
   )
 }
 
