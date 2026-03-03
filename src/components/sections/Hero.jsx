@@ -74,7 +74,7 @@ const Hero = () => {
       {/* FloatingLines background */}
       <div className="absolute inset-0 z-0" aria-hidden="true">
         <FloatingLines
-          linesGradient={['#00C9A7', '#009E85', '#00C9A7']}
+          linesGradient={['#38BDF8', '#0EA5E9', '#38BDF8']}
           enabledWaves={['middle', 'bottom']}
           lineCount={[8, 6]}
           lineDistance={[4, 5]}
@@ -116,7 +116,7 @@ const Hero = () => {
         <FadeItem delay={0.4} reduced={reduced}>
           <h1
             className="font-playfair font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-center leading-tight bg-clip-text text-transparent"
-            style={{ backgroundImage: 'linear-gradient(135deg, #00C9A7, #00D4FF)' }}
+            style={{ backgroundImage: 'linear-gradient(135deg, #38BDF8, #7DD3FC)' }}
             aria-hidden="true"
           >
             {hero.headlineLine3}

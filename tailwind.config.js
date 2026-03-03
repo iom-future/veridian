@@ -5,19 +5,19 @@ export default {
     extend: {
       colors: {
         teal: {
+          primary:  '#38BDF8',
+          light:    '#7DD3FC',
+          dark:     '#0EA5E9',
+          glow:     'rgba(56,189,248,0.12)',
+          border:   'rgba(56,189,248,0.25)',
+        },
+        blue: {
           primary:  '#00C9A7',
           light:    '#00E8C2',
           dark:     '#009E85',
+          accent:   '#00D4FF',
           glow:     'rgba(0,201,167,0.12)',
           border:   'rgba(0,201,167,0.25)',
-        },
-        blue: {
-          primary:  '#0057FF',
-          light:    '#3378FF',
-          dark:     '#003FBB',
-          accent:   '#00D4FF',
-          glow:     'rgba(0,87,255,0.12)',
-          border:   'rgba(0,87,255,0.25)',
         },
         bg: {
           primary:   '#060C18',
@@ -36,10 +36,10 @@ export default {
         inter:    ['Inter', 'sans-serif'],
       },
       boxShadow: {
-        teal:   '0 0 40px rgba(0,201,167,0.12)',
-        tealLg: '0 0 80px rgba(0,201,167,0.18)',
-        blue:   '0 0 40px rgba(0,87,255,0.12)',
-        blueLg: '0 0 80px rgba(0,87,255,0.18)',
+        teal:   '0 0 40px rgba(56,189,248,0.12)',
+        tealLg: '0 0 80px rgba(56,189,248,0.18)',
+        blue:   '0 0 40px rgba(0,201,167,0.12)',
+        blueLg: '0 0 80px rgba(0,201,167,0.18)',
       },
       borderRadius: {
         none: '0px',

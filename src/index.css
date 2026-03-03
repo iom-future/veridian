@@ -32,7 +32,7 @@ h3 {
 
 /* Teal text selection */
 ::selection {
-  background: rgba(0, 201, 167, 0.25);
+  background: rgba(56, 189, 248, 0.25);
   color: #e8f0ff;
 }
 
@@ -44,12 +44,12 @@ h3 {
   background: #060c18;
 }
 ::-webkit-scrollbar-thumb {
-  background: #00c9a7;
+  background: #38BDF8;
 }
 
 /* Focus ring */
 :focus-visible {
-  outline: 1px solid #00c9a7;
+  outline: 1px solid #38BDF8;
   outline-offset: 3px;
 }
 
