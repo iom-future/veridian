@@ -42,7 +42,7 @@ const Solutions = () => {
               const Icon = iconMap[item.icon]
               return (
                 <div key={item.id} className="bg-bg-card p-10 hover:bg-bg-hover transition-colors">
-                  {Icon && <Icon className="text-teal-primary mb-6" size={28} />}
+                  {Icon && <Icon className="text-teal-primary mb-6" size={28} aria-hidden="true" />}
                   <h3 className="font-playfair font-bold text-xl lg:text-2xl text-text-primary mb-4">{item.title}</h3>
                   <p className="font-inter text-sm lg:text-base text-text-muted leading-relaxed">
                     {item.body}
@@ -65,7 +65,8 @@ const Solutions = () => {
                    <div className="sm:w-1/3 h-48 sm:h-auto overflow-hidden">
                       <img 
                         src={ImageSrc} 
-                        alt={item.title} 
+                        alt={`Industry visualization for ${item.title}`} 
+                        loading="lazy"
                         className="w-full h-full object-cover grayscale-[30%] group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110"
                       />
                    </div>

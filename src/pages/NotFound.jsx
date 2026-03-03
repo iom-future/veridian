@@ -5,7 +5,7 @@ const NotFound = () => {
   return (
     <main className="bg-bg-primary min-h-screen flex items-center justify-center pt-16">
       <div className="text-center px-4 max-w-xl">
-        <ShieldAlert size={80} className="text-teal-primary mx-auto mb-8 opacity-40" />
+        <ShieldAlert size={80} className="text-teal-primary mx-auto mb-8 opacity-40" aria-hidden="true" />
         <h1 className="font-playfair font-bold text-8xl md:text-9xl text-teal-primary mb-4 leading-none select-none">
           404
         </h1>
@@ -19,7 +19,7 @@ const NotFound = () => {
           to="/"
           className="inline-flex items-center gap-2 bg-teal-primary hover:bg-teal-light text-bg-primary font-inter font-bold px-8 py-4 transition-colors"
         >
-          <ArrowLeft size={18} />
+          <ArrowLeft size={18} aria-hidden="true" />
           Return to Dashboard
         </Link>
       </div>

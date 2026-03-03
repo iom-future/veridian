@@ -38,7 +38,7 @@ const ForGovernments = () => {
              const Icon = feat.icon;
              return (
                <div key={feat.title} className="bg-bg-card border border-teal-border/20 p-8">
-                 {Icon && <Icon className="text-teal-primary mb-6" size={32} />}
+                 {Icon && <Icon className="text-teal-primary mb-6" size={32} aria-hidden="true" />}
                  <h3 className="font-playfair font-bold text-xl lg:text-2xl text-text-primary mb-4">{feat.title}</h3>
                  <p className="font-inter text-sm lg:text-base text-text-muted leading-relaxed">{feat.desc}</p>
                </div>
@@ -59,7 +59,8 @@ const ForGovernments = () => {
                        {ImageSrc && (
                          <img 
                            src={ImageSrc} 
-                           alt={proofItem.name} 
+                           alt={`Portrait of ${proofItem.name}`} 
+                           loading="lazy"
                            className="w-12 h-12 object-cover bg-bg-secondary border border-teal-border/30"
                          />
                        )}

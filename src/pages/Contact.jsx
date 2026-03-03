@@ -33,7 +33,7 @@ const Contact = () => {
             <div className="space-y-8">
               <div className="flex items-start gap-6">
                 <div className="bg-bg-card border border-teal-border/20 p-4 text-teal-primary">
-                  <Mail size={24} />
+                  <Mail size={24} aria-hidden="true" />
                 </div>
                 <div>
                   <h3 className="font-playfair font-bold text-xl lg:text-2xl text-text-primary mb-2">Direct Communications</h3>
@@ -47,7 +47,7 @@ const Contact = () => {
 
               <div className="flex items-start gap-6">
                 <div className="bg-bg-card border border-teal-border/20 p-4 text-teal-primary">
-                   <Globe size={24} />
+                   <Globe size={24} aria-hidden="true" />
                 </div>
                 <div>
                    <h3 className="font-playfair font-bold text-xl lg:text-2xl text-text-primary mb-2">Global Headquarters</h3>
@@ -61,9 +61,9 @@ const Contact = () => {
               </div>
 
               <div className="flex items-center gap-6 pt-6 border-t border-white/10">
-                 <a href={site.social.linkedin} className="text-text-muted hover:text-teal-primary transition-colors"><Linkedin /></a>
-                 <a href={site.social.twitter} className="text-text-muted hover:text-teal-primary transition-colors"><Twitter /></a>
-                 <a href={site.social.youtube} className="text-text-muted hover:text-teal-primary transition-colors"><Youtube /></a>
+                 <a href={site.social.linkedin} className="text-text-muted hover:text-teal-primary transition-colors" aria-label="LinkedIn"><Linkedin aria-hidden="true" /></a>
+                 <a href={site.social.twitter} className="text-text-muted hover:text-teal-primary transition-colors" aria-label="Twitter"><Twitter aria-hidden="true" /></a>
+                 <a href={site.social.youtube} className="text-text-muted hover:text-teal-primary transition-colors" aria-label="YouTube"><Youtube aria-hidden="true" /></a>
               </div>
             </div>
           </div>

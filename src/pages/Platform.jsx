@@ -39,18 +39,26 @@ const Platform = () => {
         </p>
 
         {/* Tab Switcher */}
-        <div className="mt-16 flex overflow-x-auto scrollbar-hide gap-2 border-b border-white/10 pb-4">
+        <div 
+          className="mt-16 flex overflow-x-auto scrollbar-hide gap-2 border-b border-white/10 pb-4"
+          role="tablist"
+          aria-label="Platform feature layers"
+        >
           {platform.tabs.map((tab) => {
             const Icon = iconMap[tab.icon]
             return (
               <button
                 key={tab.id}
+                id={`tab-${tab.id}`}
+                role="tab"
+                aria-selected={activeTab === tab.id}
+                aria-controls={`panel-${tab.id}`}
                 onClick={() => setActiveTab(tab.id)}
                 className={`flex-shrink-0 flex items-center gap-2 relative px-6 py-3 font-inter text-sm font-medium transition-colors ${
                   activeTab === tab.id ? 'text-teal-primary' : 'text-text-muted hover:text-text-primary'
                 }`}
               >
-                {Icon && <Icon size={14} />}
+                {Icon && <Icon size={14} aria-hidden="true" />}
                 {tab.label}
                 {activeTab === tab.id && (
                   <motion.div
@@ -72,11 +80,15 @@ const Platform = () => {
               return activeTab === tab.id ? (
                 <motion.div
                   key={tab.id}
+                  id={`panel-${tab.id}`}
+                  role="tabpanel"
+                  aria-labelledby={`tab-${tab.id}`}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.4 }}
-                  className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:items-stretch"
+                  className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:items-stretch outline-none"
+                  tabIndex="0"
                 >
                   <div className="relative overflow-hidden">
                     {/* Background icon */}
@@ -111,7 +123,8 @@ const Platform = () => {
                     {ImageSrc && (
                       <img 
                         src={ImageSrc} 
-                        alt={tab.label}
+                        alt={`${tab.label} Feature Visualization`}
+                        loading="lazy"
                         className="w-full h-full object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-700"
                       />
                     )}

@@ -61,7 +61,8 @@ const CaseStudies = () => {
                         {ImageSrc ? (
                           <img 
                             src={ImageSrc} 
-                            alt={t.name}
+                            alt={`Portrait of ${t.name}`}
+                            loading="lazy"
                             className="w-12 h-12 object-cover bg-bg-secondary border border-teal-border/30"
                           />
                         ) : (
@@ -79,15 +80,15 @@ const CaseStudies = () => {
                      <p className="font-inter text-xs lg:text-sm text-teal-primary mb-4 tracking-[0.2em] uppercase">Impact Highlights</p>
                      <div className="space-y-4">
                         <div className="flex items-start gap-3">
-                           <CheckCircle className="text-teal-primary mt-1" size={16} />
+                           <CheckCircle className="text-teal-primary mt-1" size={16} aria-hidden="true" />
                            <p className="font-inter text-sm lg:text-base text-text-muted leading-relaxed">Deployed across global multi-tier supply chain infrastructure.</p>
                         </div>
                         <div className="flex items-start gap-3">
-                           <CheckCircle className="text-teal-primary mt-1" size={16} />
+                           <CheckCircle className="text-teal-primary mt-1" size={16} aria-hidden="true" />
                            <p className="font-inter text-sm lg:text-base text-text-muted leading-relaxed">Enabled 72-hour disruption forecasting models.</p>
                         </div>
                         <div className="flex items-start gap-3">
-                           <CheckCircle className="text-teal-primary mt-1" size={16} />
+                           <CheckCircle className="text-teal-primary mt-1" size={16} aria-hidden="true" />
                            <p className="font-inter text-sm lg:text-base text-text-muted leading-relaxed">Full ERP integration with legacy TMS/WMS systems.</p>
                         </div>
                      </div>
