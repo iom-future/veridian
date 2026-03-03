@@ -3,6 +3,15 @@ import SectionLabel from '../components/shared/SectionLabel'
 import { proof } from '../content/content'
 import CTASection from '../components/sections/CTASection'
 
+// Import government testimonial images
+import vasquezImg from '../assets/testimonial/v_test1.png'
+import oseiImg from '../assets/testimonial/n_test2.png'
+
+const imageMap = {
+  vasquez: vasquezImg,
+  osei: oseiImg,
+}
+
 const ForGovernments = () => {
   const govtProof1 = proof.testimonials.find(t => t.id === 'vasquez')
   const govtProof2 = proof.testimonials.find(t => t.id === 'osei')
@@ -39,17 +48,29 @@ const ForGovernments = () => {
 
         {/* Government Testimonials */}
         <div className="mt-32 grid grid-cols-1 md:grid-cols-2 gap-12">
-            {[govtProof1, govtProof2].filter(Boolean).map((proofItem) => (
-               <div key={proofItem.id} className="border-l-2 border-teal-primary pl-10">
-                  <p className="font-playfair italic text-xl text-text-primary leading-relaxed border-teal-border mb-8">
-                    &ldquo;{proofItem.quote}&rdquo;
-                  </p>
-                  <div>
-                    <p className="font-inter font-bold text-text-primary">{proofItem.name}</p>
-                    <p className="font-inter text-sm lg:text-base text-text-muted">{proofItem.title}, {proofItem.badge}</p>
-                  </div>
-               </div>
-            ))}
+            {[govtProof1, govtProof2].filter(Boolean).map((proofItem) => {
+               const ImageSrc = imageMap[proofItem.id]
+               return (
+                 <div key={proofItem.id} className="border-l-2 border-teal-primary pl-10">
+                    <p className="font-playfair italic text-xl text-text-primary leading-relaxed border-teal-border mb-8">
+                      &ldquo;{proofItem.quote}&rdquo;
+                    </p>
+                    <div className="flex items-center gap-4">
+                       {ImageSrc && (
+                         <img 
+                           src={ImageSrc} 
+                           alt={proofItem.name} 
+                           className="w-12 h-12 object-cover bg-bg-secondary border border-teal-border/30"
+                         />
+                       )}
+                       <div>
+                         <p className="font-inter font-bold text-text-primary">{proofItem.name}</p>
+                         <p className="font-inter text-sm lg:text-base text-text-muted">{proofItem.title}, {proofItem.badge}</p>
+                       </div>
+                    </div>
+                 </div>
+               )
+            })}
         </div>
       </div>
 

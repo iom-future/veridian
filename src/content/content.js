@@ -294,9 +294,9 @@ export const team = {
       twitter:  '#',
     },
     {
-      id:       'okonkwo',
-      initials: 'NO',
-      name:     'Nadia Okonkwo',
+      id:       'boone',
+      initials: 'NB',
+      name:     'Nadia Boone',
       title:    'Chief Technology Officer & Co-Founder',
       bio:      'Led distributed systems engineering at Hyperledger Foundation and previously built IoT fleet infrastructure at Bosch. Nadia architected Veridian\'s edge-first computing layer — the system that makes intelligence possible without cloud connectivity.',
       linkedin: '#',

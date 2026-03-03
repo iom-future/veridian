@@ -3,6 +3,9 @@ import SectionLabel from '../components/shared/SectionLabel'
 import { proof } from '../content/content'
 import CTASection from '../components/sections/CTASection'
 
+// Import Marcus Webb's image
+import webbImg from '../assets/testimonial/t_test3.png'
+
 const ForEnterprises = () => {
   const enterpriseProof = proof.testimonials.find(t => t.id === 'webb')
 
@@ -41,9 +44,16 @@ const ForEnterprises = () => {
              <p className="font-playfair italic text-2xl text-text-primary leading-relaxed">
                &ldquo;{enterpriseProof.quote}&rdquo;
              </p>
-             <div className="mt-8">
-               <p className="font-inter font-bold text-text-primary">{enterpriseProof.name}</p>
-               <p className="font-inter text-sm lg:text-base text-text-muted">{enterpriseProof.title}, {enterpriseProof.badge}</p>
+             <div className="mt-8 flex items-center gap-4">
+                <img 
+                  src={webbImg} 
+                  alt={enterpriseProof.name} 
+                  className="w-12 h-12 object-cover bg-bg-secondary border border-teal-border/30"
+                />
+                <div>
+                  <p className="font-inter font-bold text-text-primary">{enterpriseProof.name}</p>
+                  <p className="font-inter text-sm lg:text-base text-text-muted">{enterpriseProof.title}, {enterpriseProof.badge}</p>
+                </div>
              </div>
           </div>
         )}

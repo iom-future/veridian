@@ -3,9 +3,19 @@ import { motion } from 'framer-motion'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import SectionLabel from '../shared/SectionLabel'
-import DummyImage from '../shared/DummyImage'
 import useReducedMotion from '../../hooks/useReducedMotion'
 import { proof } from '../../content/content'
+
+// Import testimonial images
+import vasquezImg from '../../assets/testimonial/v_test1.png'
+import oseiImg from '../../assets/testimonial/n_test2.png'
+import webbImg from '../../assets/testimonial/t_test3.png'
+
+const imageMap = {
+  vasquez: vasquezImg,
+  osei: oseiImg,
+  webb: webbImg,
+}
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -74,31 +84,40 @@ const Proof = () => {
 
         {/* Testimonial cards */}
         <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6">
-          {proof.testimonials.map((t, i) => (
-            <motion.div
-              key={t.id}
-              className="bg-bg-card border border-white/[0.08] p-8 flex flex-col"
-              initial={reduced ? false : { opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-40px' }}
-              transition={{ duration: 0.5, delay: i * 0.12 }}
-            >
-              <span className="font-playfair text-5xl text-teal-primary/40 leading-none mb-2" aria-hidden="true">&ldquo;</span>
-              <p className="font-inter text-sm lg:text-base text-text-muted leading-relaxed flex-1">
-                {t.quote}
-              </p>
-              <div className="flex items-center gap-4 mt-8 pt-6 border-t border-white/[0.06]">
-                <DummyImage initials={t.initials} size="sm" className="w-12 h-12 flex-shrink-0" />
-                <div>
-                  <p className="font-inter font-semibold text-sm lg:text-base text-text-primary">{t.name}</p>
-                  <p className="font-inter text-xs lg:text-sm text-text-muted">{t.title}</p>
-                  <span className="inline-block mt-1 font-inter text-[10px] lg:text-xs tracking-wider uppercase text-teal-primary border border-teal-border px-2 py-0.5">
-                    {t.badge}
-                  </span>
+          {proof.testimonials.map((t, i) => {
+            const ImageSrc = imageMap[t.id]
+            return (
+              <motion.div
+                key={t.id}
+                className="bg-bg-card border border-white/[0.08] p-8 flex flex-col"
+                initial={reduced ? false : { opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-40px' }}
+                transition={{ duration: 0.5, delay: i * 0.12 }}
+              >
+                <span className="font-playfair text-5xl text-teal-primary/40 leading-none mb-2" aria-hidden="true">&ldquo;</span>
+                <p className="font-inter text-sm lg:text-base text-text-muted leading-relaxed flex-1">
+                  {t.quote}
+                </p>
+                <div className="flex items-center gap-4 mt-8 pt-6 border-t border-white/[0.06]">
+                  {ImageSrc && (
+                    <img 
+                      src={ImageSrc} 
+                      alt={t.name}
+                      className="w-12 h-12 object-cover bg-bg-secondary"
+                    />
+                  )}
+                  <div>
+                    <p className="font-inter font-semibold text-sm lg:text-base text-text-primary">{t.name}</p>
+                    <p className="font-inter text-xs lg:text-sm text-text-muted">{t.title}</p>
+                    <span className="inline-block mt-1 font-inter text-[10px] lg:text-xs tracking-wider uppercase text-teal-primary border border-teal-border px-2 py-0.5">
+                      {t.badge}
+                    </span>
+                  </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            )
+          })}
         </div>
       </div>
     </section>

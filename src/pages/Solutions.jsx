@@ -4,8 +4,21 @@ import { Layers, Cpu, Bot, ShieldCheck, TrendingUp, Plug, Pill, Shield, Package,
 import SectionLabel from '../components/shared/SectionLabel'
 import { features, verticals } from '../content/content'
 
+// Import vertical images
+import pharmaImg from '../assets/fields/medicine.jpg'
+import aerospaceImg from '../assets/fields/aerospace.jpg'
+import foodImg from '../assets/fields/food.jpg'
+import electronicImg from '../assets/fields/Electronic.jpg'
+
 const iconMap = {
   Layers, Cpu, Bot, ShieldCheck, TrendingUp, Plug, Pill, Shield, Package, Gem
+}
+
+const imageMap = {
+  pharma: pharmaImg,
+  defense: aerospaceImg,
+  food: foodImg,
+  luxury: electronicImg,
 }
 
 const Solutions = () => {
@@ -46,18 +59,22 @@ const Solutions = () => {
           <h2 className="font-playfair font-bold text-3xl text-text-primary mb-12">{verticals.headline}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {verticals.items.map((item) => {
-              const Icon = iconMap[item.icon]
+              const ImageSrc = imageMap[item.id]
               return (
-                <div key={item.id} className="relative group overflow-hidden border border-teal-border/20 bg-bg-card p-10 hover:border-teal-primary transition-all duration-300">
-                   {Icon && (
-                    <Icon size={120} className="absolute -bottom-4 -right-4 text-teal-primary/5 group-hover:text-teal-primary/10 transition-colors" />
-                   )}
-                  <div className="relative z-10">
+                <div key={item.id} className="group overflow-hidden border border-teal-border/20 bg-bg-card hover:border-teal-primary transition-all duration-500 flex flex-col sm:flex-row">
+                   <div className="sm:w-1/3 h-48 sm:h-auto overflow-hidden">
+                      <img 
+                        src={ImageSrc} 
+                        alt={item.title} 
+                        className="w-full h-full object-cover grayscale-[30%] group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110"
+                      />
+                   </div>
+                   <div className="p-8 sm:w-2/3 flex flex-col justify-center">
                     <h3 className="font-playfair font-bold text-2xl lg:text-3xl text-text-primary mb-4">{item.title}</h3>
-                    <p className="font-inter text-text-muted leading-relaxed mb-8 lg:text-lg">
+                    <p className="font-inter text-text-muted leading-relaxed mb-8 text-sm lg:text-base">
                       {item.body}
                     </p>
-                    <Link to="/contact" className="inline-flex items-center gap-2 text-teal-primary text-sm font-semibold hover:text-teal-light transition-colors">
+                    <Link to="/contact" className="inline-flex items-center gap-2 text-teal-primary text-sm font-semibold hover:text-teal-light transition-colors mt-auto">
                       Discuss Vertical Solutions <ArrowRight size={14} />
                     </Link>
                   </div>
