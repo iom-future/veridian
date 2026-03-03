@@ -32,9 +32,9 @@ const Team = () => {
             >
               <DummyImage initials={member.initials} size="md" className="w-full" />
               <div className="p-6">
-                <h3 className="font-playfair font-bold text-lg text-text-primary">{member.name}</h3>
-                <p className="font-inter text-sm text-teal-primary mt-1">{member.title}</p>
-                <p className="font-inter text-sm text-text-muted mt-3 leading-relaxed">{member.bio}</p>
+                <h3 className="font-playfair font-bold text-lg lg:text-xl text-text-primary">{member.name}</h3>
+                <p className="font-inter text-sm lg:text-base text-teal-primary mt-1">{member.title}</p>
+                <p className="font-inter text-sm lg:text-base text-text-muted mt-3 leading-relaxed">{member.bio}</p>
                 <div className="flex items-center gap-3 mt-4">
                   <a href={member.linkedin} className="text-text-dim hover:text-teal-primary transition-colors" aria-label={`${member.name} LinkedIn`}>
                     <Linkedin size={16} aria-hidden="true" />

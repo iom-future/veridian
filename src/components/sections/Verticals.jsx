@@ -62,10 +62,10 @@ const Verticals = () => {
 
                 {/* Text Content */}
                 <div className="p-8 relative z-10">
-                  <h3 className="font-playfair font-semibold text-2xl text-text-primary mb-4 group-hover:text-teal-primary transition-colors duration-300">
+                  <h3 className="font-playfair font-semibold text-2xl lg:text-3xl text-text-primary mb-4 group-hover:text-teal-primary transition-colors duration-300">
                     {item.title}
                   </h3>
-                  <p className="font-inter text-base text-text-muted leading-relaxed">
+                   <p className="font-inter text-base lg:text-lg text-text-muted leading-relaxed">
                     {item.body}
                   </p>
                 </div>

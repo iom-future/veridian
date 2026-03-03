@@ -30,8 +30,8 @@ const ForGovernments = () => {
              return (
                <div key={feat.title} className="bg-bg-card border border-teal-border/20 p-8">
                  {Icon && <Icon className="text-teal-primary mb-6" size={32} />}
-                 <h3 className="font-playfair font-bold text-xl text-text-primary mb-4">{feat.title}</h3>
-                 <p className="font-inter text-sm text-text-muted leading-relaxed">{feat.desc}</p>
+                 <h3 className="font-playfair font-bold text-xl lg:text-2xl text-text-primary mb-4">{feat.title}</h3>
+                 <p className="font-inter text-sm lg:text-base text-text-muted leading-relaxed">{feat.desc}</p>
                </div>
              );
            })}
@@ -46,7 +46,7 @@ const ForGovernments = () => {
                   </p>
                   <div>
                     <p className="font-inter font-bold text-text-primary">{proofItem.name}</p>
-                    <p className="font-inter text-sm text-text-muted">{proofItem.title}, {proofItem.badge}</p>
+                    <p className="font-inter text-sm lg:text-base text-text-muted">{proofItem.title}, {proofItem.badge}</p>
                   </div>
                </div>
             ))}

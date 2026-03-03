@@ -36,11 +36,11 @@ const Contact = () => {
                   <Mail size={24} />
                 </div>
                 <div>
-                  <h3 className="font-playfair font-bold text-xl text-text-primary mb-2">Direct Communications</h3>
+                  <h3 className="font-playfair font-bold text-xl lg:text-2xl text-text-primary mb-2">Direct Communications</h3>
                   <div className="space-y-1">
-                    <p className="font-inter text-sm text-text-muted">General: {site.contact.general}</p>
-                    <p className="font-inter text-sm text-text-muted">Enterprise: {site.contact.enterprise}</p>
-                    <p className="font-inter text-sm text-text-muted">Investors: {site.contact.investors}</p>
+                    <p className="font-inter text-sm lg:text-base text-text-muted">General: {site.contact.general}</p>
+                    <p className="font-inter text-sm lg:text-base text-text-muted">Enterprise: {site.contact.enterprise}</p>
+                    <p className="font-inter text-sm lg:text-base text-text-muted">Investors: {site.contact.investors}</p>
                   </div>
                 </div>
               </div>
@@ -50,8 +50,8 @@ const Contact = () => {
                    <Globe size={24} />
                 </div>
                 <div>
-                   <h3 className="font-playfair font-bold text-xl text-text-primary mb-2">Global Headquarters</h3>
-                   <p className="font-inter text-sm text-text-muted mb-4">{site.contact.hq}</p>
+                   <h3 className="font-playfair font-bold text-xl lg:text-2xl text-text-primary mb-2">Global Headquarters</h3>
+                   <p className="font-inter text-sm lg:text-base text-text-muted mb-4">{site.contact.hq}</p>
                    <div className="flex flex-wrap gap-x-4 gap-y-2">
                       {site.contact.regional.map(city => (
                         <span key={city} className="font-inter text-xs text-text-dim uppercase tracking-widest">{city}</span>
@@ -70,7 +70,7 @@ const Contact = () => {
 
           {/* Right: Demo Form */}
           <div className="bg-bg-card border border-teal-border/30 p-8 md:p-12">
-            <h2 className="font-playfair font-bold text-3xl text-text-primary mb-8">{cta.formHeadline}</h2>
+            <h2 className="font-playfair font-bold text-3xl lg:text-4xl text-text-primary mb-8">{cta.formHeadline}</h2>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="space-y-2">
                 <label className="font-inter text-xs text-text-muted uppercase tracking-widest">{cta.fields.name}</label>

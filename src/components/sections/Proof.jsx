@@ -84,15 +84,15 @@ const Proof = () => {
               transition={{ duration: 0.5, delay: i * 0.12 }}
             >
               <span className="font-playfair text-5xl text-teal-primary/40 leading-none mb-2" aria-hidden="true">&ldquo;</span>
-              <p className="font-inter text-sm text-text-muted leading-relaxed flex-1">
+              <p className="font-inter text-sm lg:text-base text-text-muted leading-relaxed flex-1">
                 {t.quote}
               </p>
               <div className="flex items-center gap-4 mt-8 pt-6 border-t border-white/[0.06]">
                 <DummyImage initials={t.initials} size="sm" className="w-12 h-12 flex-shrink-0" />
                 <div>
-                  <p className="font-inter font-semibold text-sm text-text-primary">{t.name}</p>
-                  <p className="font-inter text-xs text-text-muted">{t.title}</p>
-                  <span className="inline-block mt-1 font-inter text-[10px] tracking-wider uppercase text-teal-primary border border-teal-border px-2 py-0.5">
+                  <p className="font-inter font-semibold text-sm lg:text-base text-text-primary">{t.name}</p>
+                  <p className="font-inter text-xs lg:text-sm text-text-muted">{t.title}</p>
+                  <span className="inline-block mt-1 font-inter text-[10px] lg:text-xs tracking-wider uppercase text-teal-primary border border-teal-border px-2 py-0.5">
                     {t.badge}
                   </span>
                 </div>

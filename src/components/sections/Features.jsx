@@ -38,8 +38,8 @@ const Features = () => {
                 className="bg-bg-primary p-8 group hover:border-l-2 hover:border-teal-primary transition-all duration-200"
               >
                 {Icon && <Icon size={28} className="text-teal-primary mb-4" aria-hidden="true" />}
-                <h3 className="font-playfair font-semibold text-lg text-text-primary mb-3">{item.title}</h3>
-                <p className="font-inter text-sm text-text-muted leading-relaxed">{item.body}</p>
+                <h3 className="font-playfair font-semibold text-lg lg:text-xl text-text-primary mb-3">{item.title}</h3>
+                <p className="font-inter text-sm lg:text-base text-text-muted leading-relaxed">{item.body}</p>
               </div>
             )
           })}

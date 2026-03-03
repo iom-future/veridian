@@ -57,12 +57,12 @@ const PlatformPreview = () => {
                   <div className="flex items-center gap-3 mb-4">
                     {Icon && <Icon size={24} className="text-teal-primary group-hover:scale-110 transition-transform duration-300" aria-hidden="true" />}
                     <div>
-                      <p className="font-inter font-semibold text-sm text-text-primary">{tab.label}</p>
-                      <p className="font-inter text-xs text-text-dim">{tab.sublabel}</p>
+                      <p className="font-inter font-semibold text-sm lg:text-base text-text-primary">{tab.label}</p>
+                      <p className="font-inter text-xs lg:text-sm text-text-dim">{tab.sublabel}</p>
                     </div>
                   </div>
-                  <h3 className="font-playfair font-semibold text-xl text-text-primary mb-3 group-hover:text-teal-light transition-colors duration-300">{tab.headline}</h3>
-                  <p className="font-inter text-sm text-text-muted leading-relaxed group-hover:text-text-primary transition-colors duration-300">{firstSentence}</p>
+                  <h3 className="font-playfair font-semibold text-xl lg:text-2xl text-text-primary mb-3 group-hover:text-teal-light transition-colors duration-300">{tab.headline}</h3>
+                  <p className="font-inter text-sm lg:text-base text-text-muted leading-relaxed group-hover:text-text-primary transition-colors duration-300">{firstSentence}</p>
                 </div>
               </motion.div>
             )

@@ -38,10 +38,10 @@ const CaseStudies = () => {
                    <div className="bg-teal-primary/10 w-fit p-3 mb-6">
                       <span className="font-inter text-xs font-bold text-teal-primary tracking-widest uppercase">{t.badge}</span>
                    </div>
-                   <h3 className="font-playfair font-bold text-3xl text-text-primary mb-6 leading-tight">
+                   <h3 className="font-playfair font-bold text-3xl lg:text-4xl text-text-primary mb-6 leading-tight">
                      Implementation Case Study: {t.title}
                    </h3>
-                   <p className="font-playfair italic text-lg text-text-muted mb-8 leading-relaxed">
+                   <p className="font-playfair italic text-lg lg:text-xl text-text-muted mb-8 leading-relaxed">
                      &ldquo;{t.quote}&rdquo;
                    </p>
                    <div className="flex items-center gap-4">
@@ -55,19 +55,19 @@ const CaseStudies = () => {
                    </div>
                 </div>
                 <div className="bg-bg-card border border-teal-border/20 p-8 h-80 flex flex-col justify-center">
-                   <p className="font-inter text-xs text-teal-primary mb-4 tracking-[0.2em] uppercase">Impact Highlights</p>
+                   <p className="font-inter text-xs lg:text-sm text-teal-primary mb-4 tracking-[0.2em] uppercase">Impact Highlights</p>
                    <div className="space-y-4">
                       <div className="flex items-start gap-3">
                          <CheckCircle className="text-teal-primary mt-1" size={16} />
-                         <p className="font-inter text-sm text-text-muted leading-relaxed">Deployed across global multi-tier supply chain infrastructure.</p>
+                         <p className="font-inter text-sm lg:text-base text-text-muted leading-relaxed">Deployed across global multi-tier supply chain infrastructure.</p>
                       </div>
                       <div className="flex items-start gap-3">
                          <CheckCircle className="text-teal-primary mt-1" size={16} />
-                         <p className="font-inter text-sm text-text-muted leading-relaxed">Enabled 72-hour disruption forecasting models.</p>
+                         <p className="font-inter text-sm lg:text-base text-text-muted leading-relaxed">Enabled 72-hour disruption forecasting models.</p>
                       </div>
                       <div className="flex items-start gap-3">
                          <CheckCircle className="text-teal-primary mt-1" size={16} />
-                         <p className="font-inter text-sm text-text-muted leading-relaxed">Full ERP integration with legacy TMS/WMS systems.</p>
+                         <p className="font-inter text-sm lg:text-base text-text-muted leading-relaxed">Full ERP integration with legacy TMS/WMS systems.</p>
                       </div>
                    </div>
                 </div>

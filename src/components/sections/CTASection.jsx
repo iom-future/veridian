@@ -38,7 +38,7 @@ const CTASection = () => {
 
         {/* Form card */}
         <div ref={formRef} className="mt-12 bg-bg-card border border-teal-border/30 p-8 md:p-12 max-w-2xl mx-auto text-left">
-          <h3 className="font-playfair font-bold text-xl text-text-primary mb-8">{cta.formHeadline}</h3>
+          <h3 className="font-playfair font-bold text-xl lg:text-2xl text-text-primary mb-8">{cta.formHeadline}</h3>
           <form onSubmit={handleSubmit} className="flex flex-col gap-5">
             <input
               type="text"
@@ -98,7 +98,7 @@ const CTASection = () => {
               {cta.submitLabel}
             </button>
           </form>
-          <p className="font-inter text-xs text-text-dim mt-4 leading-relaxed">{cta.privacyNote}</p>
+          <p className="font-inter text-xs lg:text-sm text-text-dim mt-4 leading-relaxed">{cta.privacyNote}</p>
         </div>
 
         {/* Secondary CTAs */}

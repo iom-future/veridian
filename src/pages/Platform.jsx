@@ -69,21 +69,21 @@ const Platform = () => {
                         })()
                       ) : null}
                       <div>
-                        <h2 className="font-playfair font-bold text-2xl text-text-primary">{tab.headline}</h2>
-                        <p className="font-inter text-sm text-teal-primary">{tab.sublabel}</p>
+                        <h2 className="font-playfair font-bold text-2xl lg:text-3xl text-text-primary">{tab.headline}</h2>
+                        <p className="font-inter text-sm lg:text-base text-teal-primary">{tab.sublabel}</p>
                       </div>
                     </div>
-                    <p className="font-inter text-text-muted leading-relaxed mb-8">
+                    <p className="font-inter text-text-muted leading-relaxed mb-8 lg:text-lg">
                       {tab.body}
                     </p>
                     <div className="flex flex-wrap gap-4">
                       <div className="bg-bg-card border border-teal-border/20 p-4 flex-1 min-w-[200px]">
-                        <p className="font-inter text-xs text-text-dim uppercase tracking-widest mb-2 text-teal-primary">Architecture</p>
-                        <p className="font-inter text-sm text-text-primary">Fully decoupled Microservices</p>
+                        <p className="font-inter text-xs lg:text-sm text-text-dim uppercase tracking-widest mb-2 text-teal-primary">Architecture</p>
+                        <p className="font-inter text-sm lg:text-base text-text-primary">Fully decoupled Microservices</p>
                       </div>
                       <div className="bg-bg-card border border-teal-border/20 p-4 flex-1 min-w-[200px]">
-                        <p className="font-inter text-xs text-text-dim uppercase tracking-widest mb-2 text-teal-primary">Performance</p>
-                        <p className="font-inter text-sm text-text-primary">Sub-100ms Latency</p>
+                        <p className="font-inter text-xs lg:text-sm text-text-dim uppercase tracking-widest mb-2 text-teal-primary">Performance</p>
+                        <p className="font-inter text-sm lg:text-base text-text-primary">Sub-100ms Latency</p>
                       </div>
                     </div>
                   </div>

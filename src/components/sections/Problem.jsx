@@ -34,8 +34,8 @@ const Problem = () => {
             return (
               <div key={card.id} className="bg-bg-card p-8 md:p-10 group transition-all duration-500">
                 {Icon && <Icon size={28} className="text-red-500 mb-4 group-hover:scale-110 transition-transform duration-300" aria-hidden="true" />}
-                <h3 className="font-playfair font-semibold text-xl text-text-primary mb-3 group-hover:text-red-400 transition-colors duration-300">{card.title}</h3>
-                <p className="font-inter text-sm text-text-muted leading-relaxed group-hover:text-text-primary/90 transition-colors duration-300">{card.body}</p>
+                <h3 className="font-playfair font-semibold text-xl lg:text-2xl text-text-primary mb-3 group-hover:text-red-400 transition-colors duration-300">{card.title}</h3>
+                <p className="font-inter text-sm lg:text-base text-text-muted leading-relaxed group-hover:text-text-primary/90 transition-colors duration-300">{card.body}</p>
               </div>
             )
           })}
@@ -46,7 +46,7 @@ const Problem = () => {
           <p className="font-playfair italic text-xl md:text-2xl text-text-primary leading-relaxed">
             &ldquo;{problem.pullQuote}&rdquo;
           </p>
-          <p className="font-inter text-sm text-teal-primary mt-4">{problem.pullQuoteAttribution}</p>
+          <p className="font-inter text-sm lg:text-base text-teal-primary mt-4">{problem.pullQuoteAttribution}</p>
         </div>
       </div>
     </section>

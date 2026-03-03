@@ -30,8 +30,8 @@ const Solutions = () => {
               return (
                 <div key={item.id} className="bg-bg-card p-10 hover:bg-bg-hover transition-colors">
                   {Icon && <Icon className="text-teal-primary mb-6" size={28} />}
-                  <h3 className="font-playfair font-bold text-xl text-text-primary mb-4">{item.title}</h3>
-                  <p className="font-inter text-sm text-text-muted leading-relaxed">
+                  <h3 className="font-playfair font-bold text-xl lg:text-2xl text-text-primary mb-4">{item.title}</h3>
+                  <p className="font-inter text-sm lg:text-base text-text-muted leading-relaxed">
                     {item.body}
                   </p>
                 </div>
@@ -53,8 +53,8 @@ const Solutions = () => {
                     <Icon size={120} className="absolute -bottom-4 -right-4 text-teal-primary/5 group-hover:text-teal-primary/10 transition-colors" />
                    )}
                   <div className="relative z-10">
-                    <h3 className="font-playfair font-bold text-2xl text-text-primary mb-4">{item.title}</h3>
-                    <p className="font-inter text-text-muted leading-relaxed mb-8">
+                    <h3 className="font-playfair font-bold text-2xl lg:text-3xl text-text-primary mb-4">{item.title}</h3>
+                    <p className="font-inter text-text-muted leading-relaxed mb-8 lg:text-lg">
                       {item.body}
                     </p>
                     <Link to="/contact" className="inline-flex items-center gap-2 text-teal-primary text-sm font-semibold hover:text-teal-light transition-colors">
