@@ -1,24 +1,29 @@
 import { motion } from 'framer-motion'
-import { Pill, Shield, Package, Gem } from 'lucide-react'
 import SectionLabel from '../shared/SectionLabel'
 import useReducedMotion from '../../hooks/useReducedMotion'
 import { verticals } from '../../content/content'
 
-const iconMap = {
-  Pill,
-  Shield,
-  Package,
-  Gem,
+// Import images for each vertical
+import pharmaImg from '../../assets/fields/medicine.jpg'
+import aerospaceImg from '../../assets/fields/aerospace.jpg'
+import foodImg from '../../assets/fields/food.jpg'
+import electronicImg from '../../assets/fields/Electronic.jpg'
+
+const imageMap = {
+  pharma: pharmaImg,
+  defense: aerospaceImg,
+  food: foodImg,
+  luxury: electronicImg,
 }
 
 const slideVariants = (direction, reduced) =>
   reduced
     ? {}
     : {
-        initial: { opacity: 0, x: direction === 'left' ? -48 : 48 },
-        whileInView: { opacity: 1, x: 0 },
+        initial: { opacity: 0, y: 30 },
+        whileInView: { opacity: 1, y: 0 },
         viewport: { once: true, margin: '-50px' },
-        transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
+        transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
       }
 
 const Verticals = () => {
@@ -36,28 +41,33 @@ const Verticals = () => {
         </p>
 
         {/* Vertical cards */}
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
           {verticals.items.map((item, i) => {
-            const Icon = iconMap[item.icon]
-            const direction = i % 2 === 0 ? 'left' : 'right'
+            const ImageSrc = imageMap[item.id]
             return (
               <motion.div
                 key={item.id}
-                className="relative bg-bg-card border border-white/[0.08] p-8 group hover:border-teal-border transition-all duration-300 overflow-hidden"
-                {...slideVariants(direction, reduced)}
+                className="flex flex-col bg-bg-card border border-white/[0.08] hover:border-teal-border/30 transition-all duration-500 group overflow-hidden"
+                {...slideVariants('up', reduced)}
               >
-                {/* Large background icon */}
-                {Icon && (
-                  <Icon
-                    size={80}
-                    className="absolute top-4 right-4 text-teal-primary/[0.08] group-hover:text-teal-primary/[0.15] transition-colors duration-500"
-                    aria-hidden="true"
+                {/* Image Container */}
+                <div className="relative h-64 overflow-hidden">
+                  <img
+                    src={ImageSrc}
+                    alt={item.title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale-[30%] group-hover:grayscale-0"
                   />
-                )}
-                <div className="relative z-10">
-                  {Icon && <Icon size={24} className="text-teal-primary mb-4" aria-hidden="true" />}
-                  <h3 className="font-playfair font-semibold text-xl text-text-primary mb-3">{item.title}</h3>
-                  <p className="font-inter text-sm text-text-muted leading-relaxed">{item.body}</p>
+                  <div className="absolute inset-0 bg-gradient-to-t from-bg-card to-transparent opacity-60" />
+                </div>
+
+                {/* Text Content */}
+                <div className="p-8 relative z-10">
+                  <h3 className="font-playfair font-semibold text-2xl text-text-primary mb-4 group-hover:text-teal-primary transition-colors duration-300">
+                    {item.title}
+                  </h3>
+                  <p className="font-inter text-base text-text-muted leading-relaxed">
+                    {item.body}
+                  </p>
                 </div>
               </motion.div>
             )

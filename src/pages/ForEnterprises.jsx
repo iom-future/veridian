@@ -23,13 +23,16 @@ const ForEnterprises = () => {
              { title: 'Full-Stack Integration', desc: 'The only platform unifying IoT, blockchain, ML, and agentic AI in one governed data model.', icon: Layers },
              { title: 'ERP Native', desc: 'Connect natively to SAP, Oracle, and Manhattan WMS/TMS with zero disruption to legacy workflows.', icon: Plug },
              { title: 'Autonomous Execution', desc: 'Agents execute rerouting, procurement, and compliance workflows at machine speed.', icon: Bot }
-           ].map((feat) => (
-             <div key={feat.title} className="bg-bg-card border border-teal-border/20 p-8">
-               <feat.icon className="text-teal-primary mb-6" size={32} />
-               <h3 className="font-playfair font-bold text-xl text-text-primary mb-4">{feat.title}</h3>
-               <p className="font-inter text-sm text-text-muted leading-relaxed">{feat.desc}</p>
-             </div>
-           ))}
+           ].map((feat) => {
+             const Icon = feat.icon;
+             return (
+               <div key={feat.title} className="bg-bg-card border border-teal-border/20 p-8">
+                 {Icon && <Icon className="text-teal-primary mb-6" size={32} />}
+                 <h3 className="font-playfair font-bold text-xl text-text-primary mb-4">{feat.title}</h3>
+                 <p className="font-inter text-sm text-text-muted leading-relaxed">{feat.desc}</p>
+               </div>
+             );
+           })}
         </div>
 
         {/* Enterprise Testimonial */}

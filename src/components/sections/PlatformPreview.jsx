@@ -38,24 +38,32 @@ const PlatformPreview = () => {
           {platform.tabs.map((tab, i) => {
             const Icon = iconMap[tab.icon]
             const firstSentence = tab.body.split('. ')[0] + '.'
+            const number = (i + 1).toString().padStart(2, '0')
             return (
               <motion.div
                 key={tab.id}
-                className={`bg-bg-card border border-teal-border/20 p-8 group hover:border-teal-border hover:shadow-teal transition-all duration-300 ${colSpans[i]}`}
+                className={`relative bg-bg-card border border-teal-border/20 p-8 group hover:border-teal-border hover:shadow-teal transition-all duration-500 overflow-hidden ${colSpans[i]}`}
                 initial={reduced ? false : { opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-50px' }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
               >
-                <div className="flex items-center gap-3 mb-4">
-                  {Icon && <Icon size={24} className="text-teal-primary" aria-hidden="true" />}
-                  <div>
-                    <p className="font-inter font-semibold text-sm text-text-primary">{tab.label}</p>
-                    <p className="font-inter text-xs text-text-dim">{tab.sublabel}</p>
+                {/* Big Number Accent */}
+                <span className="absolute top-0 left-4 font-inter font-black text-7xl md:text-[150px] text-teal-primary/5 group-hover:text-teal-primary/10 transition-all duration-500 select-none pointer-events-none z-0">
+                  {number}
+                </span>
+
+                <div className="relative z-10">
+                  <div className="flex items-center gap-3 mb-4">
+                    {Icon && <Icon size={24} className="text-teal-primary group-hover:scale-110 transition-transform duration-300" aria-hidden="true" />}
+                    <div>
+                      <p className="font-inter font-semibold text-sm text-text-primary">{tab.label}</p>
+                      <p className="font-inter text-xs text-text-dim">{tab.sublabel}</p>
+                    </div>
                   </div>
+                  <h3 className="font-playfair font-semibold text-xl text-text-primary mb-3 group-hover:text-teal-light transition-colors duration-300">{tab.headline}</h3>
+                  <p className="font-inter text-sm text-text-muted leading-relaxed group-hover:text-text-primary transition-colors duration-300">{firstSentence}</p>
                 </div>
-                <h3 className="font-playfair font-semibold text-lg text-text-primary mb-3">{tab.headline}</h3>
-                <p className="font-inter text-sm text-text-muted leading-relaxed">{firstSentence}</p>
               </motion.div>
             )
           })}

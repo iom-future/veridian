@@ -27,15 +27,15 @@ const Problem = () => {
           {problem.intro}
         </p>
 
-        {/* Problem cards — gap-px grid with teal-tinted bg for hairline effect */}
-        <div ref={gridRef} className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-px bg-teal-border/20">
+        {/* Problem cards — gap-px grid with red-tinted bg for hairline effect */}
+        <div ref={gridRef} className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-px bg-red-500/10">
           {problem.cards.map((card) => {
             const Icon = iconMap[card.icon]
             return (
-              <div key={card.id} className="bg-bg-card p-8 md:p-10">
-                {Icon && <Icon size={28} className="text-teal-primary mb-4" aria-hidden="true" />}
-                <h3 className="font-playfair font-semibold text-xl text-text-primary mb-3">{card.title}</h3>
-                <p className="font-inter text-sm text-text-muted leading-relaxed">{card.body}</p>
+              <div key={card.id} className="bg-bg-card p-8 md:p-10 group transition-all duration-500">
+                {Icon && <Icon size={28} className="text-red-500 mb-4 group-hover:scale-110 transition-transform duration-300" aria-hidden="true" />}
+                <h3 className="font-playfair font-semibold text-xl text-text-primary mb-3 group-hover:text-red-400 transition-colors duration-300">{card.title}</h3>
+                <p className="font-inter text-sm text-text-muted leading-relaxed group-hover:text-text-primary/90 transition-colors duration-300">{card.body}</p>
               </div>
             )
           })}

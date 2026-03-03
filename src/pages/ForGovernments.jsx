@@ -25,13 +25,16 @@ const ForGovernments = () => {
              { title: 'Compliance-Grade Auditability', desc: 'FDA, EMA, and FSMA 204 compliant audit trails produced at machine speed.', icon: ShieldCheck },
              { title: 'FedRAMP Aligned', desc: 'Systems and data structures designed for federal security and compliance standards.', icon: ShieldAlert },
              { title: 'Public Transparency', desc: 'Secure, permissioned access for public oversight of infrastructure spending.', icon: ShieldCheck }
-           ].map((feat) => (
-             <div key={feat.title} className="bg-bg-card border border-teal-border/20 p-8">
-               <feat.icon className="text-teal-primary mb-6" size={32} />
-               <h3 className="font-playfair font-bold text-xl text-text-primary mb-4">{feat.title}</h3>
-               <p className="font-inter text-sm text-text-muted leading-relaxed">{feat.desc}</p>
-             </div>
-           ))}
+           ].map((feat) => {
+             const Icon = feat.icon;
+             return (
+               <div key={feat.title} className="bg-bg-card border border-teal-border/20 p-8">
+                 {Icon && <Icon className="text-teal-primary mb-6" size={32} />}
+                 <h3 className="font-playfair font-bold text-xl text-text-primary mb-4">{feat.title}</h3>
+                 <p className="font-inter text-sm text-text-muted leading-relaxed">{feat.desc}</p>
+               </div>
+             );
+           })}
         </div>
 
         {/* Government Testimonials */}

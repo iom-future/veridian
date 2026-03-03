@@ -62,7 +62,12 @@ const Platform = () => {
                 >
                   <div>
                     <div className="flex items-center gap-3 mb-6">
-                      {iconMap[tab.icon] && <tab.icon className="text-teal-primary" size={32} />}
+                      {iconMap[tab.icon] ? (
+                        (() => {
+                          const IconComp = iconMap[tab.icon];
+                          return <IconComp className="text-teal-primary" size={32} />;
+                        })()
+                      ) : null}
                       <div>
                         <h2 className="font-playfair font-bold text-2xl text-text-primary">{tab.headline}</h2>
                         <p className="font-inter text-sm text-teal-primary">{tab.sublabel}</p>
