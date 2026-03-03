@@ -94,7 +94,7 @@ const Hero = () => {
       />
 
       {/* Content */}
-      <div className="relative z-10 flex-1 flex flex-col items-center justify-center max-w-5xl mx-auto px-4 md:px-8 pt-24 pb-16">
+      <div id="main-content" className="relative z-10 flex-1 flex flex-col items-center justify-center max-w-5xl mx-auto px-4 md:px-8 pt-24 pb-16 outline-none" tabIndex="-1">
         {/* Eyebrow */}
         <FadeItem delay={0.1} reduced={reduced}>
           <p className="font-inter text-xs tracking-[0.25em] uppercase text-teal-primary mb-6 text-center">
@@ -103,25 +103,24 @@ const Hero = () => {
         </FadeItem>
 
         {/* Headline */}
-        <FadeItem delay={0.2} reduced={reduced}>
-          <h1 id="hero-heading" className="font-playfair font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-center leading-tight">
-            {hero.headlineLine1}
-          </h1>
-        </FadeItem>
-        <FadeItem delay={0.3} reduced={reduced}>
-          <h1 className="font-playfair font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-center leading-tight" aria-hidden="true">
-            {hero.headlineLine2}
-          </h1>
-        </FadeItem>
-        <FadeItem delay={0.4} reduced={reduced}>
-          <h1
-            className="font-playfair font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-center leading-tight bg-clip-text text-transparent"
-            style={{ backgroundImage: 'linear-gradient(135deg, #38BDF8, #7DD3FC)' }}
-            aria-hidden="true"
-          >
-            {hero.headlineLine3}
-          </h1>
-        </FadeItem>
+        <header className="flex flex-col items-center">
+          <FadeItem delay={0.2} reduced={reduced}>
+            <h1 id="hero-heading" className="font-playfair font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-center leading-tight">
+              {hero.headlineLine1}
+              <span className="block" aria-hidden="true">{hero.headlineLine2}</span>
+              <span 
+                className="block bg-clip-text text-transparent"
+                style={{ backgroundImage: 'linear-gradient(135deg, #38BDF8, #7DD3FC)' }}
+                aria-hidden="true"
+              >
+                {hero.headlineLine3}
+              </span>
+              <span className="sr-only">
+                {hero.headlineLine2} {hero.headlineLine3}
+              </span>
+            </h1>
+          </FadeItem>
+        </header>
 
         {/* Subheadline */}
         <FadeItem delay={0.5} reduced={reduced}>

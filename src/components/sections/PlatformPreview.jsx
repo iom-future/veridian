@@ -111,6 +111,7 @@ const PlatformPreview = () => {
                         <img 
                           src={ImageSrc} 
                           alt={tab.label}
+                          loading="lazy"
                           className="w-full h-full object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-1000"
                         />
                       )}

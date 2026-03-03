@@ -51,7 +51,8 @@ const Team = () => {
                 <div className="aspect-[4/5] overflow-hidden bg-bg-secondary">
                   <img 
                     src={ImageSrc} 
-                    alt={member.name} 
+                    alt={`Portrait of ${member.name}`} 
+                    loading="lazy"
                     className="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 transition-all duration-500 group-hover:scale-105"
                   />
                 </div>

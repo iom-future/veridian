@@ -103,7 +103,8 @@ const Proof = () => {
                   {ImageSrc && (
                     <img 
                       src={ImageSrc} 
-                      alt={t.name}
+                      alt={`Photo of ${t.name}`}
+                      loading="lazy"
                       className="w-12 h-12 object-cover bg-bg-secondary"
                     />
                   )}
