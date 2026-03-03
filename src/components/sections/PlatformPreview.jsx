@@ -1,9 +1,16 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { Cpu, Link as LinkIcon, BrainCircuit, Bot, ArrowRight } from 'lucide-react'
 import SectionLabel from '../shared/SectionLabel'
 import useReducedMotion from '../../hooks/useReducedMotion'
 import { platform } from '../../content/content'
+
+// Import platform images
+import img1 from '../../assets/howItWorks/img1.png'
+import img2 from '../../assets/howItWorks/img2.png'
+import img3 from '../../assets/howItWorks/img3.png'
+import img4 from '../../assets/howItWorks/img4.png'
 
 const iconMap = {
   Cpu,
@@ -12,15 +19,16 @@ const iconMap = {
   Bot,
 }
 
-const colSpans = [
-  'lg:col-span-3',
-  'lg:col-span-2',
-  'lg:col-span-2',
-  'lg:col-span-3',
-]
+const imageMap = {
+  'iot': img1,
+  'blockchain': img2,
+  'ml': img3,
+  'agents': img4,
+}
 
 const PlatformPreview = () => {
   const reduced = useReducedMotion()
+  const [activeTab, setActiveTab] = useState(platform.tabs[0].id)
 
   return (
     <section className="py-24 md:py-32 bg-bg-primary" aria-labelledby="platform-preview-heading">
@@ -33,56 +41,90 @@ const PlatformPreview = () => {
           {platform.intro}
         </p>
 
-        {/* Bento grid */}
-        <div className="mt-16 grid grid-cols-1 lg:grid-cols-5 gap-4">
-          {platform.tabs.map((tab, i) => {
-            const Icon = iconMap[tab.icon]
-            const firstSentence = tab.body.split('. ')[0] + '.'
-            const number = (i + 1).toString().padStart(2, '0')
-            return (
-              <motion.div
-                key={tab.id}
-                className={`relative bg-bg-card border border-teal-border/20 p-8 group hover:border-teal-border hover:shadow-teal transition-all duration-500 overflow-hidden ${colSpans[i]}`}
-                initial={reduced ? false : { opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-50px' }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-              >
-                {/* Big Number Accent */}
-                <span className="absolute top-0 left-4 font-inter font-black text-7xl md:text-[150px] text-teal-primary/5 group-hover:text-teal-primary/10 transition-all duration-500 select-none pointer-events-none z-0">
-                  {number}
-                </span>
+        {/* Tabbed interface */}
+        <div className="mt-16 bg-bg-card border border-teal-border/10">
+          {/* Navigator */}
+          <div className="flex overflow-x-auto scrollbar-hide border-b border-white/5">
+            {platform.tabs.map((tab) => {
+              const Icon = iconMap[tab.icon]
+              return (
+                <button
+                  key={tab.id}
+                  onClick={() => setActiveTab(tab.id)}
+                  className={`flex-shrink-0 flex items-center gap-2 py-4 px-6 font-inter text-xs font-bold tracking-widest uppercase transition-all duration-300 border-r border-white/5 last:border-r-0 ${
+                    activeTab === tab.id 
+                      ? 'bg-teal-primary/10 text-teal-primary' 
+                      : 'text-text-muted hover:bg-white/[0.02] hover:text-text-primary'
+                  }`}
+                >
+                  {Icon && <Icon size={14} />}
+                  {tab.label}
+                </button>
+              )
+            })}
+          </div>
 
-                <div className="relative z-10">
-                  <div className="flex items-center gap-3 mb-4">
-                    {Icon && <Icon size={24} className="text-teal-primary group-hover:scale-110 transition-transform duration-300" aria-hidden="true" />}
-                    <div>
-                      <p className="font-inter font-semibold text-sm lg:text-base text-text-primary">{tab.label}</p>
-                      <p className="font-inter text-xs lg:text-sm text-text-dim">{tab.sublabel}</p>
+          {/* Content Area */}
+          <div className="p-8 md:p-12">
+            <AnimatePresence mode="wait">
+              {platform.tabs.map((tab) => {
+                const Icon = iconMap[tab.icon]
+                const ImageSrc = imageMap[tab.id]
+                return activeTab === tab.id ? (
+                  <motion.div
+                    key={tab.id}
+                    initial={reduced ? false : { opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -20 }}
+                    transition={{ duration: 0.4 }}
+                    className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:items-stretch"
+                  >
+                    <div className="relative overflow-hidden">
+                      {/* Background icon */}
+                      {Icon && (
+                        <Icon 
+                          size={200} 
+                          className="absolute left-2 -top-4 text-teal-primary/[0.07] rotate-[12deg] pointer-events-none select-none z-0" 
+                          aria-hidden="true" 
+                        />
+                      )}
+                      <div className="relative z-10">
+                        <div className="mb-6">
+                          <h3 className="font-playfair font-bold text-2xl lg:text-3xl text-text-primary">{tab.headline}</h3>
+                          <p className="font-inter text-sm text-teal-primary/80 tracking-wide mt-1">{tab.sublabel}</p>
+                        </div>
+                        <p className="font-inter text-sm md:text-base lg:text-lg text-text-muted leading-relaxed mb-8">
+                          {tab.body}
+                        </p>
+                        <Link
+                          to="/platform"
+                          className="inline-flex items-center gap-2 font-inter text-sm font-bold text-teal-primary hover:text-teal-light transition-colors group"
+                        >
+                          Deep Dive Technical Specs
+                          <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                        </Link>
+                      </div>
                     </div>
-                  </div>
-                  <h3 className="font-playfair font-semibold text-xl lg:text-2xl text-text-primary mb-3 group-hover:text-teal-light transition-colors duration-300">{tab.headline}</h3>
-                  <p className="font-inter text-sm lg:text-base text-text-muted leading-relaxed group-hover:text-text-primary transition-colors duration-300">{firstSentence}</p>
-                </div>
-              </motion.div>
-            )
-          })}
-        </div>
 
-        {/* Link to full platform page */}
-        <div className="mt-8 text-center">
-          <Link
-            to="/platform"
-            className="inline-flex items-center gap-2 font-inter text-sm text-teal-primary hover:text-teal-light transition-colors"
-          >
-            Explore Full Platform Architecture
-            <ArrowRight size={14} aria-hidden="true" />
-          </Link>
+                    <div className="relative bg-bg-primary border border-white/5 overflow-hidden min-h-[250px]">
+                      {ImageSrc && (
+                        <img 
+                          src={ImageSrc} 
+                          alt={tab.label}
+                          className="w-full h-full object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-1000"
+                        />
+                      )}
+                    </div>
+                  </motion.div>
+                ) : null
+              })}
+            </AnimatePresence>
+          </div>
         </div>
 
         {/* Convergence banner */}
-        <div className="mt-12 bg-white/[0.03] border-t border-b border-white/[0.08] py-6 text-center">
-          <p className="font-inter text-sm md:text-base text-teal-primary tracking-wide">
+        <div className="mt-12 text-center">
+          <p className="inline-block font-inter text-xs md:text-sm text-teal-primary/60 tracking-[0.2em] uppercase border border-teal-primary/20 px-6 py-2">
             {platform.convergenceBanner}
           </p>
         </div>

@@ -57,3 +57,12 @@ img {
   display: block;
   max-width: 100%;
 }
+
+/* Hide scrollbar for horizontal overflow */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
