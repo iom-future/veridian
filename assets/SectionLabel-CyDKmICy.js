@@ -1,0 +1,1 @@
+import{n as e}from"./createLucideIcon-x8sN-Q_n.js";var t=e(),n=({text:e})=>(0,t.jsx)(`p`,{className:`inline-block font-inter text-xs font-medium tracking-widest uppercase text-teal-primary mb-4`,children:e});export{n as t};

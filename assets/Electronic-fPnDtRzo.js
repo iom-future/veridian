@@ -1,0 +1,1 @@
+import{t as e}from"./createLucideIcon-x8sN-Q_n.js";var t=e(`trending-up`,[[`path`,{d:`M16 7h6v6`,key:`box55l`}],[`path`,{d:`m22 7-8.5 8.5-5-5L2 17`,key:`1t1m79`}]]),n=`/veridian/assets/medicine-CYnrQ8au.jpg`,r=`/veridian/assets/aerospace-CAA0p-vx.jpg`,i=`/veridian/assets/food-7D5UeCJ_.jpg`,a=`/veridian/assets/Electronic-DVhHKPgi.jpg`;export{t as a,n as i,i as n,r,a as t};

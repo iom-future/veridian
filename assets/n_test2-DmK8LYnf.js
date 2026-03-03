@@ -1,0 +1,1 @@
+var e=`/veridian/assets/v_test1-Bjevmbxt.png`,t=`/veridian/assets/n_test2-CmxUamTD.png`;export{e as n,t};
