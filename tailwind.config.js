@@ -25,6 +25,7 @@ export default {
           card:      '#FFFFFF',
           hover:     '#E2E8F0',
           dark:      '#060C18',
+          hero:      '#DBEAFE',
         },
         text: {
           primary: '#0F172A',
@@ -34,7 +35,7 @@ export default {
         },
       },
       fontFamily: {
-        playfair: ['Playfair Display', 'serif'],
+        playfair: ['DM Serif Display', 'serif'],
         inter:    ['Inter', 'sans-serif'],
       },
       boxShadow: {
