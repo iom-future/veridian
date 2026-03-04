@@ -16,8 +16,8 @@ html {
 }
 
 body {
-  background-color: #060c18;
-  color: #e8f0ff;
+  background-color: #F8FAFC;
+  color: #0F172A;
   font-family: "Inter", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -41,10 +41,10 @@ h3 {
   width: 4px;
 }
 ::-webkit-scrollbar-track {
-  background: #060c18;
+  background: #F8FAFC;
 }
 ::-webkit-scrollbar-thumb {
-  background: #38BDF8;
+  background: #CBD5E1;
 }
 
 /* Focus ring */

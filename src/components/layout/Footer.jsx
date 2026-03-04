@@ -11,7 +11,7 @@ const Footer = () => {
       {/* Top teal gradient border */}
       <div
         className="h-px w-full"
-        style={{ background: 'linear-gradient(90deg, transparent, rgba(0,201,167,0.4), transparent)' }}
+        style={{ background: 'linear-gradient(90deg, transparent, rgba(71, 85, 105, 0.2), transparent)' }}
         aria-hidden="true"
       />
 
@@ -102,7 +102,7 @@ const Footer = () => {
         </div>
 
         {/* Legal Row */}
-        <div className="mt-16 pt-8 border-t border-white/8">
+        <div className="mt-16 pt-8 border-t border-slate-200">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="font-inter text-xs text-text-dim">
               {footerContent.copyright}

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
-import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { Boxes, Menu, X, ArrowRight } from 'lucide-react'
 import { site, nav } from '../../content/content'
 
@@ -8,8 +8,6 @@ const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [bannerVisible, setBannerVisible] = useState(true)
   const location = useLocation()
-  const { scrollY } = useScroll()
-  const bgOpacity = useTransform(scrollY, [0, 120], [0.6, 0.95])
 
   // Close mobile menu on route change
   useEffect(() => {
@@ -27,10 +25,10 @@ const Navbar = () => {
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="relative z-50 bg-teal-primary/10 border-b border-teal-border/30 overflow-hidden"
+            className="relative z-50 bg-bg-dark border-b border-white/10 overflow-hidden"
           >
             <div className="max-w-7xl mx-auto px-4 md:px-8 py-2 flex items-center justify-center gap-4">
-              <p className="font-inter text-xs md:text-sm text-text-primary text-center">
+              <p className="font-inter text-xs md:text-sm text-text-dark text-center">
                 {site.announcement}
                 <Link
                   to="/case-studies"
@@ -42,7 +40,7 @@ const Navbar = () => {
               </p>
               <button
                 onClick={() => setBannerVisible(false)}
-                className="absolute right-4 text-text-muted hover:text-text-primary transition-colors"
+                className="absolute right-4 text-text-dark/60 hover:text-text-dark transition-colors"
                 aria-label="Dismiss announcement"
               >
                 <X size={14} aria-hidden="true" />
@@ -53,15 +51,14 @@ const Navbar = () => {
       </AnimatePresence>
 
       {/* ── Main Navbar ── */}
-      <motion.header
-        style={{ backgroundColor: useTransform(bgOpacity, (v) => `rgba(6,12,24,${v})`) }}
-        className="sticky top-0 z-40 backdrop-blur-xl border-b border-white/5"
+      <header
+        className="sticky top-0 z-40 bg-bg-dark border-b border-white/10"
       >
         <div className="max-w-7xl mx-auto px-4 md:px-8 h-16 flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 group" aria-label="Veridian Home">
             <Boxes size={22} className="text-teal-primary group-hover:text-teal-light transition-colors" aria-hidden="true" />
-            <span className="font-inter font-bold text-lg tracking-wide text-text-primary">
+            <span className="font-inter font-bold text-lg tracking-wide text-text-dark">
               {site.name}
             </span>
           </Link>
@@ -72,7 +69,7 @@ const Navbar = () => {
               <NavLink
                 key={link.path}
                 to={link.path}
-                className="relative font-inter text-sm text-text-muted hover:text-text-primary transition-colors px-4 py-2"
+                className="relative font-inter text-sm text-text-dark/70 hover:text-text-dark transition-colors px-4 py-2"
               >
                 {({ isActive }) => (
                   <>
@@ -94,13 +91,13 @@ const Navbar = () => {
           <div className="hidden lg:flex items-center gap-3">
             <Link
               to={nav.ctaSecondary.path}
-              className="font-inter text-sm font-medium text-text-muted hover:text-text-primary border border-teal-border hover:border-teal-primary px-5 py-2 transition-all"
+              className="font-inter text-sm font-medium text-text-dark/70 hover:text-text-dark border border-teal-border hover:border-teal-primary px-5 py-2 transition-all"
             >
               {nav.ctaSecondary.label}
             </Link>
             <Link
               to={nav.ctaPrimary.path}
-              className="font-inter text-sm font-medium bg-teal-primary hover:bg-teal-light text-bg-primary px-5 py-2 transition-all"
+              className="font-inter text-sm font-medium bg-teal-primary hover:bg-teal-light text-bg-dark px-5 py-2 transition-all"
             >
               {nav.ctaPrimary.label}
             </Link>
@@ -109,14 +106,14 @@ const Navbar = () => {
           {/* Mobile Menu Toggle */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="lg:hidden text-text-primary p-2"
+            className="lg:hidden text-text-dark p-2"
             aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={mobileOpen}
           >
             {mobileOpen ? <X size={24} aria-hidden="true" /> : <Menu size={24} aria-hidden="true" />}
           </button>
         </div>
-      </motion.header>
+      </header>
 
       {/* ── Mobile Drawer ── */}
       <AnimatePresence>
@@ -138,12 +135,12 @@ const Navbar = () => {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-              className="fixed top-0 right-0 z-40 h-full w-72 bg-bg-secondary border-l border-white/10 p-8 flex flex-col gap-6 lg:hidden"
+              className="fixed top-0 right-0 z-40 h-full w-72 bg-bg-dark border-l border-white/10 p-8 flex flex-col gap-6 lg:hidden"
               aria-label="Mobile navigation"
             >
               <button
                 onClick={() => setMobileOpen(false)}
-                className="self-end text-text-muted hover:text-text-primary mb-4"
+                className="self-end text-text-dark/60 hover:text-text-dark mb-4"
                 aria-label="Close menu"
               >
                 <X size={24} aria-hidden="true" />
@@ -157,7 +154,7 @@ const Navbar = () => {
                     `font-inter text-base py-2 border-l-2 pl-4 transition-colors ${
                       isActive
                         ? 'text-teal-primary border-teal-primary'
-                        : 'text-text-muted border-transparent hover:text-text-primary hover:border-teal-border'
+                        : 'text-text-dark/60 border-transparent hover:text-text-dark hover:border-teal-border'
                     }`
                   }
                 >
@@ -168,7 +165,7 @@ const Navbar = () => {
               <div className="mt-auto flex flex-col gap-3">
                 <Link
                   to={nav.ctaSecondary.path}
-                  className="font-inter text-sm text-center text-text-muted border border-teal-border px-5 py-3 hover:border-teal-primary transition-all"
+                  className="font-inter text-sm text-center text-text-dark/70 border border-teal-border px-5 py-3 hover:border-teal-primary transition-all"
                 >
                   {nav.ctaSecondary.label}
                 </Link>

@@ -20,10 +20,10 @@ const CTASection = () => {
   return (
     <section className="py-24 md:py-32 bg-bg-primary" aria-labelledby="cta-heading">
       {/* Urgency banner */}
-      <div className="bg-teal-primary/[0.06] border-t border-b border-teal-border/30 py-4 mb-16">
+      <div className="bg-teal-primary/[0.06] border-t border-b border-slate-200 py-4 mb-16">
         <div className="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-center gap-3">
           <AlertCircle size={16} className="text-teal-primary flex-shrink-0" aria-hidden="true" />
-          <p className="font-inter text-sm text-teal-primary text-center">{cta.urgencyBanner}</p>
+          <p className="font-inter text-sm text-teal-primary text-center font-medium">{cta.urgencyBanner}</p>
         </div>
       </div>
 
@@ -37,7 +37,7 @@ const CTASection = () => {
         </p>
 
         {/* Form card */}
-        <div ref={formRef} className="mt-12 bg-bg-card border border-teal-border/30 p-8 md:p-12 max-w-2xl mx-auto text-left">
+        <div ref={formRef} className="mt-12 bg-bg-card border border-slate-200 p-8 md:p-12 max-w-2xl mx-auto text-left shadow-sm">
           <h3 className="font-playfair font-bold text-xl lg:text-2xl text-text-primary mb-8">{cta.formHeadline}</h3>
           <form onSubmit={handleSubmit} className="flex flex-col gap-5">
             <input
@@ -47,7 +47,7 @@ const CTASection = () => {
               onChange={handleChange}
               placeholder={cta.fields.name}
               required
-              className="bg-bg-primary border border-white/10 px-4 py-3 text-text-primary font-inter text-sm placeholder:text-text-dim focus:border-teal-primary focus:outline-none transition-colors"
+              className="bg-bg-primary border border-slate-200 px-4 py-3 text-text-primary font-inter text-sm placeholder:text-text-dim focus:border-teal-primary focus:outline-none transition-colors"
             />
             <input
               type="email"

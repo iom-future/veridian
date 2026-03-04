@@ -70,11 +70,11 @@ const Hero = () => {
   }
 
   return (
-    <section className="relative min-h-screen bg-bg-primary overflow-hidden flex flex-col" aria-labelledby="hero-heading">
+    <section className="relative min-h-screen bg-bg-dark overflow-hidden flex flex-col" aria-labelledby="hero-heading">
       {/* FloatingLines background */}
       <div className="absolute inset-0 z-0" aria-hidden="true">
         <FloatingLines
-          linesGradient={['#38BDF8', '#0EA5E9', '#38BDF8']}
+          linesGradient={['#0EA5E9', '#0284C7', '#0EA5E9']}
           enabledWaves={['middle', 'bottom']}
           lineCount={[8, 6]}
           lineDistance={[4, 5]}
@@ -105,12 +105,12 @@ const Hero = () => {
         {/* Headline */}
         <header className="flex flex-col items-center">
           <FadeItem delay={0.2} reduced={reduced}>
-            <h1 id="hero-heading" className="font-playfair font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-center leading-tight">
+            <h1 id="hero-heading" className="font-playfair font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-center leading-tight text-text-dark">
               {hero.headlineLine1}
               <span className="block" aria-hidden="true">{hero.headlineLine2}</span>
               <span 
                 className="block bg-clip-text text-transparent"
-                style={{ backgroundImage: 'linear-gradient(135deg, #38BDF8, #7DD3FC)' }}
+                style={{ backgroundImage: 'linear-gradient(135deg, #0EA5E9, #38BDF8)' }}
                 aria-hidden="true"
               >
                 {hero.headlineLine3}
@@ -141,13 +141,13 @@ const Hero = () => {
           <div className="flex flex-col sm:flex-row items-center gap-4 mt-10">
             <Link
               to={hero.ctaPrimary.path}
-              className="font-inter font-semibold text-sm bg-teal-primary hover:bg-teal-light text-bg-primary px-8 py-3 transition-all w-full sm:w-auto text-center"
+              className="font-inter font-semibold text-sm bg-teal-primary hover:bg-teal-light text-bg-dark px-8 py-3 transition-all w-full sm:w-auto text-center"
             >
               {hero.ctaPrimary.label}
             </Link>
             <Link
               to={hero.ctaSecondary.path}
-              className="font-inter font-medium text-sm border border-teal-border hover:border-teal-primary text-text-primary px-8 py-3 transition-all w-full sm:w-auto text-center"
+              className="font-inter font-medium text-sm border border-teal-border hover:border-teal-primary text-text-dark px-8 py-3 transition-all w-full sm:w-auto text-center"
             >
               {hero.ctaSecondary.label}
             </Link>

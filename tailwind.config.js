@@ -5,11 +5,11 @@ export default {
     extend: {
       colors: {
         teal: {
-          primary:  '#38BDF8',
-          light:    '#7DD3FC',
-          dark:     '#0EA5E9',
-          glow:     'rgba(56,189,248,0.12)',
-          border:   'rgba(56,189,248,0.25)',
+          primary:  '#0EA5E9',
+          light:    '#38BDF8',
+          dark:     '#0284C7',
+          glow:     'rgba(14,165,233,0.12)',
+          border:   'rgba(14,165,233,0.25)',
         },
         blue: {
           primary:  '#00C9A7',
@@ -20,15 +20,17 @@ export default {
           border:   'rgba(0,201,167,0.25)',
         },
         bg: {
-          primary:   '#060C18',
-          secondary: '#0A1220',
-          card:      '#0D1628',
-          hover:     '#111E35',
+          primary:   '#F8FAFC',
+          secondary: '#F1F5F9',
+          card:      '#FFFFFF',
+          hover:     '#E2E8F0',
+          dark:      '#060C18',
         },
         text: {
-          primary: '#E8F0FF',
-          muted:   '#6B7FA3',
-          dim:     '#3D4F6B',
+          primary: '#0F172A',
+          muted:   '#475569',
+          dim:     '#94A3B8',
+          dark:    '#E8F0FF',
         },
       },
       fontFamily: {
