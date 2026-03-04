@@ -4,7 +4,6 @@ import { motion } from 'framer-motion'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { ShieldCheck, ChevronDown } from 'lucide-react'
-import FloatingLines from '../ui/FloatingLines'
 import useReducedMotion from '../../hooks/useReducedMotion'
 import { hero } from '../../content/content'
 
@@ -37,7 +36,7 @@ const CountUpNumber = ({ stat, reduced }) => {
   }, [stat.value, reduced])
 
   return (
-    <span ref={numRef} className="font-inter font-bold text-2xl md:text-3xl text-blue-accent">
+    <span ref={numRef} className="font-inter font-bold text-2xl md:text-3xl text-teal-dark">
       {reduced ? stat.value : 0}
     </span>
   )
@@ -70,26 +69,55 @@ const Hero = () => {
   }
 
   return (
-    <section className="relative min-h-screen bg-bg-dark overflow-hidden flex flex-col" aria-labelledby="hero-heading">
-      {/* FloatingLines background */}
-      <div className="absolute inset-0 z-0" aria-hidden="true">
-        <FloatingLines
-          linesGradient={['#0EA5E9', '#0284C7', '#0EA5E9']}
-          enabledWaves={['middle', 'bottom']}
-          lineCount={[8, 6]}
-          lineDistance={[4, 5]}
-          animationSpeed={0.4}
-          interactive={true}
-          parallax={true}
-          parallaxStrength={0.15}
-          mixBlendMode="screen"
+    <section className="relative min-h-screen bg-white overflow-hidden flex flex-col" aria-labelledby="hero-heading">
+      {/* Background Gradient & Beam Glow */}
+      <div className="absolute inset-0 z-0 overflow-hidden" aria-hidden="true">
+        {/* Animated Base Gradient */}
+        <motion.div 
+          className="absolute inset-0"
+          animate={{
+            background: [
+              'linear-gradient(to bottom right, #f8fafc, #eff6ff, #f0f9ff)',
+              'linear-gradient(to bottom right, #eff6ff, #f0f9ff, #f8fafc)',
+              'linear-gradient(to bottom right, #f0f9ff, #f8fafc, #eff6ff)',
+            ]
+          }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            repeatType: "mirror",
+            ease: "linear"
+          }}
+        />
+        
+        {/* Beam Glow Effects */}
+        <div 
+          className="absolute -top-[20%] -left-[10%] w-[140%] h-[140%] opacity-60 pointer-events-none"
+          style={{
+            background: 'radial-gradient(circle at 20% 20%, rgba(14, 165, 233, 0.15) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(56, 189, 248, 0.1) 0%, transparent 50%)'
+          }}
+        />
+        
+        {/* The "Beam" */}
+        <motion.div 
+          initial={{ opacity: 0, x: -100, rotate: -35 }}
+          animate={{ opacity: 1, x: 0, rotate: -35 }}
+          transition={{ duration: 2, ease: "easeOut" }}
+          className="absolute top-[-50%] left-[10%] w-[60%] h-[200%] bg-gradient-to-r from-transparent via-blue-100/40 to-transparent blur-[120px] pointer-events-none"
+        />
+
+        <motion.div 
+          initial={{ opacity: 0, x: 100, rotate: -35 }}
+          animate={{ opacity: 0.6, x: 0, rotate: -35 }}
+          transition={{ duration: 2.5, ease: "easeOut", delay: 0.5 }}
+          className="absolute top-[-40%] left-[40%] w-[30%] h-[200%] bg-gradient-to-r from-transparent via-sky-200/30 to-transparent blur-[100px] pointer-events-none"
         />
       </div>
 
-      {/* Dark overlay gradient */}
+      {/* Light overlay gradient for depth */}
       <div
         className="absolute inset-0 z-[1] pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse 80% 50% at 50% 0%, transparent 30%, #060C18 100%)' }}
+        style={{ background: 'radial-gradient(ellipse 80% 50% at 50% 0%, rgba(255,255,255,0) 30%, rgba(240,249,255,0.4) 100%)' }}
         aria-hidden="true"
       />
 
@@ -105,18 +133,15 @@ const Hero = () => {
         {/* Headline */}
         <header className="flex flex-col items-center">
           <FadeItem delay={0.2} reduced={reduced}>
-            <h1 id="hero-heading" className="font-playfair font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-center leading-tight text-text-dark">
+            <h1 id="hero-heading" className="font-playfair font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-center leading-tight text-text-primary">
               {hero.headlineLine1}
               <span className="block" aria-hidden="true">{hero.headlineLine2}</span>
               <span 
                 className="block bg-clip-text text-transparent"
-                style={{ backgroundImage: 'linear-gradient(135deg, #0EA5E9, #38BDF8)' }}
+                style={{ backgroundImage: 'linear-gradient(135deg, #0EA5E9, #0284C7)' }}
                 aria-hidden="true"
               >
                 {hero.headlineLine3}
-              </span>
-              <span className="sr-only">
-                {hero.headlineLine2} {hero.headlineLine3}
               </span>
             </h1>
           </FadeItem>
@@ -141,13 +166,13 @@ const Hero = () => {
           <div className="flex flex-col sm:flex-row items-center gap-4 mt-10">
             <Link
               to={hero.ctaPrimary.path}
-              className="font-inter font-semibold text-sm bg-teal-primary hover:bg-teal-light text-bg-dark px-8 py-3 transition-all w-full sm:w-auto text-center"
+              className="font-inter font-semibold text-sm bg-teal-primary hover:bg-teal-dark text-white px-8 py-3 transition-all w-full sm:w-auto text-center"
             >
               {hero.ctaPrimary.label}
             </Link>
             <Link
               to={hero.ctaSecondary.path}
-              className="font-inter font-medium text-sm border border-teal-border hover:border-teal-primary text-text-dark px-8 py-3 transition-all w-full sm:w-auto text-center"
+              className="font-inter font-medium text-sm border border-teal-primary/20 hover:border-teal-primary text-text-primary px-8 py-3 transition-all w-full sm:w-auto text-center"
             >
               {hero.ctaSecondary.label}
             </Link>
@@ -160,7 +185,7 @@ const Hero = () => {
             {hero.trustBadges.map((badge) => (
               <span
                 key={badge}
-                className="flex items-center gap-1.5 border border-white/10 bg-white/5 px-3 py-1.5 font-inter text-xs text-text-muted"
+                className="flex items-center gap-1.5 border border-teal-primary/10 bg-teal-primary/5 px-3 py-1.5 font-inter text-xs text-text-muted"
               >
                 <ShieldCheck size={12} className="text-teal-primary" aria-hidden="true" />
                 {badge}
@@ -172,18 +197,18 @@ const Hero = () => {
 
       {/* Stats bar */}
       <FadeItem delay={0.85} reduced={reduced}>
-        <div className="relative z-10 bg-white/[0.03] border-t border-white/[0.08]">
+        <div className="relative z-10 bg-slate-50 border-t border-slate-100">
           <div className="max-w-7xl mx-auto px-4 md:px-8 py-8">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4">
               {hero.stats.map((stat) => (
                 <div key={stat.label} className="text-center">
                   <div className="flex items-baseline justify-center gap-0.5">
                     {stat.prefix && (
-                      <span className="font-inter font-bold text-2xl md:text-3xl text-blue-accent">{stat.prefix}</span>
+                      <span className="font-inter font-bold text-2xl md:text-3xl text-teal-dark">{stat.prefix}</span>
                     )}
                     <CountUpNumber stat={stat} reduced={reduced} />
                     {stat.suffix && (
-                      <span className="font-inter font-bold text-xl md:text-2xl text-blue-accent">{stat.suffix}</span>
+                      <span className="font-inter font-bold text-xl md:text-2xl text-teal-dark">{stat.suffix}</span>
                     )}
                   </div>
                   <p className="font-inter text-xs text-text-dim mt-2 max-w-[180px] mx-auto">{stat.label}</p>
@@ -209,7 +234,7 @@ const Hero = () => {
       {/* Bottom fade */}
       <div
         className="absolute bottom-0 left-0 right-0 h-32 z-[2] pointer-events-none"
-        style={{ background: 'linear-gradient(to bottom, transparent, #060C18)' }}
+        style={{ background: 'linear-gradient(to bottom, transparent, #FFFFFF)' }}
         aria-hidden="true"
       />
     </section>
